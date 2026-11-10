@@ -251,7 +251,7 @@ module Versionomy
         end
         skipped_handler_list_ = nil
         requires_next_field_ = false
-        string_ = ''
+        string_ = String.new
         value_.each_field_object do |field_, val_|
           handler_ = @field_handlers[field_.name]
           unparse_data_ = handler_.unparse(val_, unparse_params_, requires_next_field_)
