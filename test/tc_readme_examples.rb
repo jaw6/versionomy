@@ -53,7 +53,7 @@ module Versionomy
         binding_ = _get_binding
         ::File.open("#{::File.dirname(__FILE__)}/../README.rdoc") do |io_|
           running_ = false
-          buffer_ = ''
+          buffer_ = String.new
           buffer_start_line_ = nil
           io_.each_line do |line_|
 
@@ -78,7 +78,7 @@ module Versionomy
             # accumulated up to now.
             if buffer_.length > 0
               ::Kernel.eval(buffer_, binding_, 'README.rdoc', buffer_start_line_)
-              buffer_ = ''
+              buffer_ = String.new
               buffer_start_line_ = nil
             end
 

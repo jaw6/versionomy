@@ -37,7 +37,7 @@
 # Load config if present
 
 config_path_ = ::File.expand_path('rakefile_config.rb', ::File.dirname(__FILE__))
-load(config_path_) if ::File.exists?(config_path_)
+load(config_path_) if ::File.exist?(config_path_)
 RAKEFILE_CONFIG = {} unless defined?(::RAKEFILE_CONFIG)
 
 
@@ -71,6 +71,10 @@ platform_suffix_ =
       'mri19'
     elsif ::RUBY_VERSION =~ /^2\..*$/
       'mri2'
+    elsif ::RUBY_VERSION =~ /^3\..*$/
+      'mri3'
+    elsif ::RUBY_VERSION =~ /^4\..*$/
+      'mri4'
     else
       raise "Unknown version of Matz Ruby Interpreter (#{::RUBY_VERSION})"
     end
